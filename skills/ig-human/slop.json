@@ -1,0 +1,1344 @@
+{
+  "version": "1.0-it",
+  "note": "Lessico usato da humanize.py e detect.py, riscritto per l'italiano (non tradotto parola per parola: gli equivalenti sono i cliché tipici dei testi italiani generati da IA e dei calchi dall'inglese). Le voci con \"regex\": true usano espressioni regolari e conservano la desinenza (\\1) per non rompere la grammatica. Le sostituzioni sono scelte per non cambiare genere/numero. I cliché che non si possono sostituire senza rompere la frase stanno in `structures` e vengono solo segnalati. Lessico NON calibrato su testi italiani reali: modificalo liberamente, è pensato per essere tuo.",
+  "invisible": [
+    {
+      "cp": "U+200B",
+      "name": "ZERO WIDTH SPACE",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200C",
+      "name": "ZERO WIDTH NON-JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200D",
+      "name": "ZERO WIDTH JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+2060",
+      "name": "WORD JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+FEFF",
+      "name": "ZERO WIDTH NO-BREAK SPACE / BOM",
+      "action": "delete"
+    },
+    {
+      "cp": "U+00AD",
+      "name": "SOFT HYPHEN",
+      "action": "delete"
+    },
+    {
+      "cp": "U+180E",
+      "name": "MONGOLIAN VOWEL SEPARATOR",
+      "action": "delete"
+    },
+    {
+      "cp": "U+061C",
+      "name": "ARABIC LETTER MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200E",
+      "name": "LEFT-TO-RIGHT MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200F",
+      "name": "RIGHT-TO-LEFT MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+E0000-U+E007F",
+      "name": "TAG CHARACTERS (invisible ASCII smuggling)",
+      "action": "delete"
+    },
+    {
+      "cp": "U+00A0",
+      "name": "NO-BREAK SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+202F",
+      "name": "NARROW NO-BREAK SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2009",
+      "name": "THIN SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2007",
+      "name": "FIGURE SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2003",
+      "name": "EM SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2002",
+      "name": "EN SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2063",
+      "name": "INVISIBLE SEPARATOR",
+      "action": "delete"
+    }
+  ],
+  "typographic": [
+    {
+      "from": "—",
+      "name": "EM DASH",
+      "to": ", "
+    },
+    {
+      "from": "–",
+      "name": "EN DASH",
+      "to": "-"
+    },
+    {
+      "from": "‘",
+      "name": "LEFT SINGLE QUOTE",
+      "to": "'"
+    },
+    {
+      "from": "’",
+      "name": "RIGHT SINGLE QUOTE",
+      "to": "'"
+    },
+    {
+      "from": "“",
+      "name": "LEFT DOUBLE QUOTE",
+      "to": "\""
+    },
+    {
+      "from": "”",
+      "name": "RIGHT DOUBLE QUOTE",
+      "to": "\""
+    },
+    {
+      "from": "…",
+      "name": "HORIZONTAL ELLIPSIS",
+      "to": "..."
+    },
+    {
+      "from": "′",
+      "name": "PRIME",
+      "to": "'"
+    },
+    {
+      "from": "·",
+      "name": "MIDDLE DOT",
+      "to": "-"
+    },
+    {
+      "from": "•",
+      "name": "BULLET",
+      "to": "-"
+    },
+    {
+      "from": "→",
+      "name": "RIGHTWARDS ARROW",
+      "to": "->"
+    }
+  ],
+  "words": [
+    {
+      "find": "sfrutt(are|ando|at[oaie]|ano|iamo|[aoi])",
+      "replace": "us\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "sfruttare -> usare"
+    },
+    {
+      "find": "massimizz(are|ando|at[oaie]|ano|iamo|[aoi])",
+      "replace": "aument\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "massimizzare -> aumentare"
+    },
+    {
+      "find": "svel(are|ando|at[oaie]|ano|iamo|[aoi])",
+      "replace": "mostr\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "svelare -> mostrare"
+    },
+    {
+      "find": "rivoluzion(are|ando|at[oaie]|ano|[ao])",
+      "replace": "cambi\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "rivoluzionare -> cambiare"
+    },
+    {
+      "find": "facilit(are|ando|at[oaie]|ano|[ao])",
+      "replace": "semplific\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "facilitare -> semplificare"
+    },
+    {
+      "find": "potenzi(are|ando|at[oaie]|ano|[ao])",
+      "replace": "miglior\\1",
+      "family": "verbi",
+      "regex": true,
+      "label": "potenziare -> migliorare"
+    },
+    {
+      "find": "potenziamo",
+      "replace": "miglioriamo",
+      "family": "verbi"
+    },
+    {
+      "find": "approfondire",
+      "replace": "guardare",
+      "family": "verbi"
+    },
+    {
+      "find": "approfondiamo",
+      "replace": "guardiamo",
+      "family": "verbi"
+    },
+    {
+      "find": "approfondisci",
+      "replace": "guarda",
+      "family": "verbi"
+    },
+    {
+      "find": "addentrarci in",
+      "replace": "guardare",
+      "family": "verbi"
+    },
+    {
+      "find": "addentriamoci in",
+      "replace": "guardiamo",
+      "family": "verbi"
+    },
+    {
+      "find": "immergiamoci in",
+      "replace": "guardiamo",
+      "family": "verbi"
+    },
+    {
+      "find": "immergersi in",
+      "replace": "guardare",
+      "family": "verbi"
+    },
+    {
+      "find": "immergiti nel",
+      "replace": "guarda il",
+      "family": "verbi"
+    },
+    {
+      "find": "immergiti nella",
+      "replace": "guarda la",
+      "family": "verbi"
+    },
+    {
+      "find": "immergiti nell'",
+      "replace": "guarda l'",
+      "family": "verbi"
+    },
+    {
+      "find": "tuffati nel",
+      "replace": "guarda il",
+      "family": "verbi"
+    },
+    {
+      "find": "tuffati nella",
+      "replace": "guarda la",
+      "family": "verbi"
+    },
+    {
+      "find": "tuffati nell'",
+      "replace": "guarda l'",
+      "family": "verbi"
+    },
+    {
+      "find": "mette in luce",
+      "replace": "mostra",
+      "family": "verbi"
+    },
+    {
+      "find": "mettono in luce",
+      "replace": "mostrano",
+      "family": "verbi"
+    },
+    {
+      "find": "mettendo in luce",
+      "replace": "mostrando",
+      "family": "verbi"
+    },
+    {
+      "find": "mettere in luce",
+      "replace": "mostrare",
+      "family": "verbi"
+    },
+    {
+      "find": "fa luce su",
+      "replace": "spiega",
+      "family": "verbi"
+    },
+    {
+      "find": "fanno luce su",
+      "replace": "spiegano",
+      "family": "verbi"
+    },
+    {
+      "find": "fare luce su",
+      "replace": "spiegare",
+      "family": "verbi"
+    },
+    {
+      "find": "gioca(?:no)? un ruolo (?:fondamentale|cruciale|chiave|centrale|importante)",
+      "replace": "conta molto",
+      "family": "verbi",
+      "regex": true,
+      "label": "giocare un ruolo fondamentale -> contare"
+    },
+    {
+      "find": "giocare un ruolo (?:fondamentale|cruciale|chiave|centrale|importante)",
+      "replace": "contare molto",
+      "family": "verbi",
+      "regex": true,
+      "label": "giocare un ruolo fondamentale -> contare"
+    },
+    {
+      "find": "cruciale",
+      "replace": "importante",
+      "family": "aggettivi"
+    },
+    {
+      "find": "cruciali",
+      "replace": "importanti",
+      "family": "aggettivi"
+    },
+    {
+      "find": "fondamentale",
+      "replace": "importante",
+      "family": "aggettivi"
+    },
+    {
+      "find": "fondamentali",
+      "replace": "importanti",
+      "family": "aggettivi"
+    },
+    {
+      "find": "imprescindibile",
+      "replace": "necessario",
+      "family": "aggettivi"
+    },
+    {
+      "find": "imprescindibili",
+      "replace": "necessari",
+      "family": "aggettivi"
+    },
+    {
+      "find": "innovativ([oaie])",
+      "replace": "nuov\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "innovativo -> nuovo"
+    },
+    {
+      "find": "robust([oaie])",
+      "replace": "solid\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "robusto -> solido"
+    },
+    {
+      "find": "esaustiv([oaie])",
+      "replace": "complet\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "esaustivo -> completo"
+    },
+    {
+      "find": "olistic([oaie])",
+      "replace": "complet\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "olistico -> completo"
+    },
+    {
+      "find": "sfaccettat([oaie])",
+      "replace": "complicat\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "sfaccettato -> complicato"
+    },
+    {
+      "find": "poliedric([oaie])",
+      "replace": "vari\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "poliedrico -> vario"
+    },
+    {
+      "find": "variegat([oaie])",
+      "replace": "vari\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "variegato -> vario"
+    },
+    {
+      "find": "meticolos([oaie])",
+      "replace": "accurat\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "meticoloso -> accurato"
+    },
+    {
+      "find": "meticolosamente",
+      "replace": "con cura",
+      "family": "aggettivi"
+    },
+    {
+      "find": "avvincent([ei])",
+      "replace": "interessant\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "avvincente -> interessante"
+    },
+    {
+      "find": "affascinant([ei])",
+      "replace": "interessant\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "affascinante -> interessante"
+    },
+    {
+      "find": "iconic([oaie])",
+      "replace": "not\\1",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "iconico -> noto"
+    },
+    {
+      "find": "straordinari[oa]",
+      "replace": "grande",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "straordinario -> grande"
+    },
+    {
+      "find": "straordinari[ei]",
+      "replace": "grandi",
+      "family": "aggettivi",
+      "regex": true,
+      "label": "straordinari -> grandi"
+    },
+    {
+      "find": "straordinariamente",
+      "replace": "molto",
+      "family": "aggettivi"
+    },
+    {
+      "find": "estremamente",
+      "replace": "molto",
+      "family": "aggettivi"
+    },
+    {
+      "find": "senza sforzo",
+      "replace": "facilmente",
+      "family": "aggettivi"
+    },
+    {
+      "find": "senza soluzione di continuità",
+      "replace": "senza intoppi",
+      "family": "aggettivi"
+    },
+    {
+      "find": "pietra miliare",
+      "replace": "tappa importante",
+      "family": "sostantivi"
+    },
+    {
+      "find": "pietre miliari",
+      "replace": "tappe importanti",
+      "family": "sostantivi"
+    },
+    {
+      "find": "gemma nascosta",
+      "replace": "chicca",
+      "family": "sostantivi"
+    },
+    {
+      "find": "gemme nascoste",
+      "replace": "chicche",
+      "family": "sostantivi"
+    },
+    {
+      "find": "ecosistema",
+      "replace": "sistema",
+      "family": "sostantivi"
+    },
+    {
+      "find": "ecosistemi",
+      "replace": "sistemi",
+      "family": "sostantivi"
+    },
+    {
+      "find": "sinergia",
+      "replace": "collaborazione",
+      "family": "sostantivi"
+    },
+    {
+      "find": "sinergie",
+      "replace": "collaborazioni",
+      "family": "sostantivi"
+    },
+    {
+      "find": "paradigma",
+      "replace": "modello",
+      "family": "sostantivi"
+    },
+    {
+      "find": "paradigmi",
+      "replace": "modelli",
+      "family": "sostantivi"
+    },
+    {
+      "find": "game changer",
+      "replace": "cambio importante",
+      "family": "sostantivi"
+    },
+    {
+      "find": "game-changer",
+      "replace": "cambio importante",
+      "family": "sostantivi"
+    },
+    {
+      "find": "game changing",
+      "replace": "importante",
+      "family": "sostantivi"
+    },
+    {
+      "find": "game-changing",
+      "replace": "importante",
+      "family": "sostantivi"
+    },
+    {
+      "find": "life hack",
+      "replace": "trucco",
+      "family": "sostantivi"
+    },
+    {
+      "find": "hack",
+      "replace": "trucco",
+      "family": "sostantivi"
+    },
+    {
+      "find": "hacks",
+      "replace": "trucchi",
+      "family": "sostantivi"
+    },
+    {
+      "find": "guida definitiva",
+      "replace": "guida",
+      "family": "sostantivi"
+    },
+    {
+      "find": "contenuto di valore",
+      "replace": "contenuto utile",
+      "family": "sostantivi"
+    },
+    {
+      "find": "contenuti di valore",
+      "replace": "contenuti utili",
+      "family": "sostantivi"
+    },
+    {
+      "find": "ricco arazzo di",
+      "replace": "mix di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "arazzo di",
+      "replace": "mix di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "una miriade di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "una pletora di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "una moltitudine di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "un'ampia gamma di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "una vasta gamma di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "un'ampia varietà di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "un'ampia scelta di",
+      "replace": "un sacco di",
+      "family": "sostantivi"
+    },
+    {
+      "find": "inoltre",
+      "replace": "poi",
+      "family": "connettivi"
+    },
+    {
+      "find": "per di più",
+      "replace": "poi",
+      "family": "connettivi"
+    },
+    {
+      "find": "pertanto",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "di conseguenza",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "ne consegue che",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "tuttavia",
+      "replace": "però",
+      "family": "connettivi"
+    },
+    {
+      "find": "nondimeno",
+      "replace": "però",
+      "family": "connettivi"
+    },
+    {
+      "find": "ciononostante",
+      "replace": "però",
+      "family": "connettivi"
+    },
+    {
+      "find": "ad ogni modo",
+      "replace": "comunque",
+      "family": "connettivi"
+    },
+    {
+      "find": "in definitiva",
+      "replace": "alla fine",
+      "family": "connettivi"
+    },
+    {
+      "find": "in ultima analisi",
+      "replace": "alla fine",
+      "family": "connettivi"
+    },
+    {
+      "find": "in sostanza",
+      "replace": "insomma",
+      "family": "connettivi"
+    },
+    {
+      "find": "in conclusione",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "in sintesi",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "per concludere",
+      "replace": "quindi",
+      "family": "connettivi"
+    },
+    {
+      "find": "al fine di",
+      "replace": "per",
+      "family": "connettivi"
+    },
+    {
+      "find": "allo scopo di",
+      "replace": "per",
+      "family": "connettivi"
+    },
+    {
+      "find": "è importante sottolineare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "è importante notare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "è bene sottolineare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "va sottolineato che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "vale la pena notare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "vale la pena sottolineare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "è doveroso precisare che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "al giorno d'oggi",
+      "replace": "oggi",
+      "family": "connettivi"
+    },
+    {
+      "find": "oggigiorno",
+      "replace": "oggi",
+      "family": "connettivi"
+    }
+  ],
+  "phrases": [
+    {
+      "find": "nel mondo frenetico di oggi",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "nell'era digitale di oggi",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "nell'era digitale",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "nell'attuale panorama",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "nel panorama attuale",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "nel panorama digitale",
+      "replace": "online",
+      "family": "aperture"
+    },
+    {
+      "find": "in un panorama in continua evoluzione",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "in un mondo in continua evoluzione",
+      "replace": "oggi",
+      "family": "aperture"
+    },
+    {
+      "find": "in continua evoluzione",
+      "replace": "che cambia di continuo",
+      "family": "aperture"
+    },
+    {
+      "find": "in costante evoluzione",
+      "replace": "che cambia di continuo",
+      "family": "aperture"
+    },
+    {
+      "find": "un viaggio alla scoperta di",
+      "replace": "uno sguardo a",
+      "family": "aperture"
+    },
+    {
+      "find": "non è un segreto che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "è risaputo che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "è innegabile che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non c'è dubbio che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "è un dato di fatto che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "diciamocelo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "ammettiamolo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "la dura verità è che",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "immagina questo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "immagina un mondo in cui",
+      "replace": "immagina se",
+      "family": "aperture"
+    },
+    {
+      "find": "pensaci un attimo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "tutti ci siamo passati",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "ci siamo passati tutti",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono entusiasta di annunciare",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono felice di annunciare",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono orgoglioso di annunciare",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono orgogliosa di annunciare",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono lieto di annunciare",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono entusiasta di condividere",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non vedo l'ora di condividere",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono onorato di",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "sono onorata di",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "senza ulteriori indugi",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "senza troppi giri di parole",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "allacciate le cinture",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "allaccia le cinture",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "fermati un attimo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "fermati un secondo",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non scorrere oltre",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non andare oltre",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "in questo video ti mostro",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "in questo video vi mostro",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "nel video di oggi",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "nel reel di oggi",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "oggi ti mostro",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "oggi vi mostro",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "oggi ti parlo di",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "oggi vi parlo di",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "guarda fino alla fine",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "guardalo fino alla fine",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "resta fino alla fine",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non ci crederai",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "non ci crederete",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "nessuno ne parla",
+      "replace": "se ne parla poco",
+      "family": "aperture"
+    },
+    {
+      "find": "questo ha cambiato tutto",
+      "replace": "ha funzionato",
+      "family": "aperture"
+    },
+    {
+      "find": "questo è il tuo segnale per",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "scopriamo insieme",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "scopriamolo insieme",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "vediamolo insieme",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "lascia che te lo dica",
+      "replace": "",
+      "family": "aperture"
+    },
+    {
+      "find": "lascia che ti entri in testa",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "fatti entrare in testa",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "il futuro è qui",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "il futuro è adesso",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "e tu cosa ne pensi?",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "cosa ne pensi?",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "che ne pensi?",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "fammi sapere nei commenti",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "dimmi nei commenti cosa ne pensi",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "lascia un commento qui sotto",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "scrivimi nei commenti",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "tagga qualcuno che ne ha bisogno",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "tagga un amico che ne ha bisogno",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "condividi con chi ne ha bisogno",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "salva questo post per dopo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "salvalo per dopo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "salva per dopo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "segui per altri contenuti",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "seguimi per altri contenuti",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "seguimi per altri consigli",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "segui per altri consigli",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "rileggilo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "leggilo di nuovo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "fidati di me su questo",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "e il resto è storia",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "il resto è storia",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "alla fine della giornata",
+      "replace": "",
+      "family": "chiusure"
+    },
+    {
+      "find": "spostare l'ago della bilancia",
+      "replace": "fare la differenza",
+      "family": "chiusure"
+    },
+    {
+      "find": "ho avuto l'opportunità di",
+      "replace": "ho potuto",
+      "family": "connettivi"
+    },
+    {
+      "find": "ho avuto il piacere di",
+      "replace": "ho potuto",
+      "family": "connettivi"
+    },
+    {
+      "find": "all'epoca non lo sapevo",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "non sapevo ancora che",
+      "replace": "",
+      "family": "connettivi"
+    },
+    {
+      "find": "avanti veloce a oggi",
+      "replace": "oggi",
+      "family": "connettivi"
+    },
+    {
+      "find": "l'algoritmo ama",
+      "replace": "Instagram spinge",
+      "family": "sostantivi"
+    },
+    {
+      "find": "battere l'algoritmo",
+      "replace": "raggiungere più persone",
+      "family": "sostantivi"
+    },
+    {
+      "find": "fregare l'algoritmo",
+      "replace": "raggiungere più persone",
+      "family": "sostantivi"
+    },
+    {
+      "find": "diventare virali dall'oggi al domani",
+      "replace": "raggiungere più persone",
+      "family": "sostantivi"
+    },
+    {
+      "find": "diventare virale dall'oggi al domani",
+      "replace": "raggiungere più persone",
+      "family": "sostantivi"
+    }
+  ],
+  "structures": [
+    {
+      "id": "not-just",
+      "regex": "(?i)\\bnon (?:è|sono) (?:solo|soltanto|solamente|semplicemente|più che) [^.!?\\n]{2,60}[,.;]\\s*(?:è|sono|ma)\\b",
+      "name": "\"Non è solo X, è Y\"",
+      "fix": "Di' la cosa che intendi davvero. Cancella la metà di preparazione."
+    },
+    {
+      "id": "not-only",
+      "regex": "(?i)\\bnon (?:solo|soltanto|solamente)\\b[^.!?\\n]{2,80}\\bma anche\\b",
+      "name": "\"Non solo X ma anche Y\"",
+      "fix": "Dividi in due frasi, oppure togli la metà più debole."
+    },
+    {
+      "id": "isnt-about",
+      "regex": "(?i)\\bnon (?:si tratta|è una questione) di [^.!?\\n]{2,60}[.!,]\\s*(?:si tratta|è una questione) di\\b|\\bnon riguarda [^.!?\\n]{2,60}[.!]\\s*riguarda\\b",
+      "name": "\"Non si tratta di X. Si tratta di Y.\"",
+      "fix": "Parti da Y. Il ribaltamento è proprio il segnale."
+    },
+    {
+      "id": "the-result",
+      "regex": "(?i)^\\s*(?:il risultato|la parte migliore|il bello|il colpo di scena|la sorpresa|il trucco|il segreto)\\?\\s*$",
+      "name": "Riga con domanda retorica di una parola",
+      "fix": "Rispondi nella frase invece di mettere in scena la rivelazione."
+    },
+    {
+      "id": "heres-what",
+      "regex": "(?i)\\becco (?:cosa|quello che) ho (?:imparato|scoperto)\\b",
+      "name": "\"Ecco cosa ho imparato\"",
+      "fix": "Scrivi la lezione. Salta l'annuncio."
+    },
+    {
+      "id": "triad",
+      "regex": "(?i)\\b\\w+, \\w+ e \\w+\\.",
+      "name": "Triade \"X, Y e Z\"",
+      "fix": "Due elementi o quattro. Tre è il ritmo di default del modello."
+    },
+    {
+      "id": "rocket",
+      "regex": "[\\U0001F680\\U0001F525\\U0001F4A1\\u2728\\U0001F3AF]",
+      "name": "Emoji razzo / fuoco / lampadina / scintille / bersaglio",
+      "fix": "Una emoji al massimo, e non una di queste cinque."
+    },
+    {
+      "id": "hashtag-wall",
+      "regex": "(?:#\\w+[ \\t]*){5,}",
+      "name": "Muro di hashtag (5+)",
+      "fix": "Tre hashtag bastano. Instagram dal 18 dicembre 2025 ne accetta al massimo 5 e non premia il muro."
+    },
+    {
+      "id": "as-an-ai",
+      "regex": "(?i)\\bcome (?:un )?(?:modello linguistico|assistente ia|ia)\\b|\\bin quanto (?:ia|intelligenza artificiale|modello linguistico)\\b",
+      "name": "Autoriferimento del modello",
+      "fix": "Cancella la frase."
+    },
+    {
+      "id": "in-summary",
+      "regex": "(?i)^\\s*(?:in sintesi|in conclusione|per riassumere|riassumendo|per concludere|in definitiva)\\b",
+      "name": "Apertura da chiusa di tema",
+      "fix": "Un post non ha bisogno di un paragrafo conclusivo."
+    },
+    {
+      "id": "engagement-bait",
+      "regex": "(?i)(?:sei d'accordo\\?|che ne pensi\\?|cosa ne pensi\\?|e tu\\?|e voi\\?|chi altro\\b[^.!?\\n]*\\?|sbaglio\\?)\\s*$",
+      "name": "Esca di engagement da riflesso",
+      "fix": "Fai una domanda che puoi fare solo tu, sulla cosa specifica scritta sopra."
+    },
+    {
+      "id": "stop-scroll",
+      "regex": "(?im)^\\s*(?:fermati(?: un (?:attimo|secondo|momento))?|ferma(?: lo)? scroll(?:ing)?|non scrollare|smetti di scrollare|basta scrollare|non scorrere)\\b",
+      "name": "Apertura \"fermati / non scrollare\"",
+      "fix": "Lo stop allo scroll deve essere l'affermazione stessa. Chiedere attenzione è il segnale che non te la sei guadagnata."
+    },
+    {
+      "id": "in-this-video",
+      "regex": "(?i)\\b(?:in quest[oa] (?:video|reel|post)|nel (?:video|reel|post) di oggi|oggi (?:ti|vi) (?:mostro|spiego|insegno|parlo|racconto)|(?:ti|vi) (?:mostro|insegno|spiego) come)\\b",
+      "name": "Preambolo da video (\"in questo video ti mostro\")",
+      "fix": "Cancellalo e parti dal punto forte. I primi due secondi decidono tutto il reel."
+    },
+    {
+      "id": "emoji-bullets",
+      "regex": "(?m)^\\s*[\\U0001F300-\\U0001FAFF✅➡⬅✔✨]\\s*\\S",
+      "name": "Elenco puntato con emoji",
+      "fix": "Usa un trattino o un a capo. Le emoji come puntini sono la cosa che sa più di modello in una didascalia."
+    },
+    {
+      "id": "caps-shout",
+      "regex": "\\b[A-ZÀ-Þ]{3,}\\b(?:\\s+\\b[A-ZÀ-Þ]{3,}\\b){2,}",
+      "name": "Tre o più parole in maiuscolo di fila",
+      "fix": "Il maiuscolo è una manopola del volume, non un evidenziatore. Una parola al massimo."
+    },
+    {
+      "id": "follow-bait",
+      "regex": "(?i)\\b(?:segui(?:mi)? per (?:altri|più)|tagga (?:qualcuno|un amico|un'amica)|metti (?:un )?(?:like|cuoricino)|doppio tap|condividi (?:questo )?(?:se|con chi)|commenta (?:qui sotto )?se)\\b",
+      "name": "Esca da riflesso per follow o tag",
+      "fix": "Chiedi l'unica azione che questo post si merita. La richiesta generica abitua il pubblico a ignorarle tutte."
+    },
+    {
+      "id": "potenziale",
+      "regex": "(?i)\\b(?:sblocca|libera|scatena|svela)\\w*\\s+(?:il\\s+(?:tuo\\s+)?)?(?:vero\\s+)?potenziale\\b|\\blivello successivo\\b|\\bsalto di livello\\b|\\bal prossimo livello\\b",
+      "name": "\"Sblocca il tuo potenziale\" / \"livello successivo\"",
+      "fix": "Di' quale risultato preciso, in quanto tempo. Questa frase non promette niente."
+    },
+    {
+      "id": "cliche-agg",
+      "regex": "(?i)\\b(?:all'avanguardia|a 360 gradi|a tutto tondo|mozzafiato|imperdibil[ei]|da non perdere|must[- ]have|d'impatto|tesoro nascosto|tesori nascosti)\\b",
+      "name": "Aggettivo o locuzione da brochure",
+      "fix": "Sostituisci con un fatto verificabile: un numero, un nome, un prezzo."
+    }
+  ]
+}

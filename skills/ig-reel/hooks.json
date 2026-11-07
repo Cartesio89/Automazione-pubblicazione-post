@@ -1,0 +1,302 @@
+{
+  "version": "1.0-it",
+  "note": "26 formule di hook per Reel, adattate all'italiano (non traduzioni letterali: esempi, modi di dire e regex sono riscritti). Un Reel ha due hook che partono insieme e non sono la stessa frase: la prima cosa che dici e la prima cosa a schermo. L'hook parlato ha circa due secondi. L'hook a schermo ne ha circa uno, perché si legge prima di essere sentito. Ogni formula ha un modello, un esempio, la versione a schermo, a cosa serve e il modo in cui di solito viene rovinata. Ogni formula ha anche una regex `match`, così lo stesso vocabolario può dare un nome a un hook trovato in giro e non solo scriverne uno nuovo. Si percorrono in `classify_order`, dalla più specifica, senza distinzione maiuscole/minuscole. Le regex sono verificate solo sugli esempi qui sotto, non su hook italiani reali: aspettati falsi negativi (finiranno in 'non classificato', che è il comportamento voluto) e leggi quelli a mano.",
+  "rules": [
+    "Scrivi la riga parlata e la riga a schermo separatamente. A schermo è la più corta e la più brusca: sei parole o meno, nessuna punteggiatura che non serve.",
+    "Niente introduzione. Il video parte dalla frase che normalmente diresti al secondo sei.",
+    "Di' il numero. \"Tanto\" non è un numero e nemmeno \"un sacco di tempo\".",
+    "Anche il primo fotogramma è un hook. Una testa che parla ferma a 0:00, senza movimento e senza testo, sono tre hook sprecati.",
+    "Se l'hook andrebbe bene per chiunque altro nella tua nicchia, non è il tuo hook. Mettici dentro la cosa che puoi dire solo tu.",
+    "Un hook promette qualcosa. Consegnalo prima della metà o la retention che hai comprato te la riprendono."
+  ],
+  "hooks": [
+    {
+      "id": 1,
+      "name": "La Confessione del Costo",
+      "template": "{Importo preciso}: è quanto mi è costato {un errore}.",
+      "example": "18.000 euro: è quanto mi è costata una clausola mancante.",
+      "on_screen": "ERRORE DA 18.000 €",
+      "best_for": "Fiducia, in fretta. La gente finisce i video in cui sei tu quello che ci fa la figura peggiore.",
+      "trap": "Un costo finto. \"Mi è costata la serenità\" non è un numero e lo sentono tutti.",
+      "match": "\\d[\\d.,]*\\s?(?:€|euro)?\\s*[:,]?\\s*(?:è|sono|era|erano)\\s+(?:quanto|quello che|il (?:prezzo|costo))\\b|\\b(?:mi|ci|gli|le) (?:è|sono) cost(?:ato|ata|ati|ate)\\b|\\bho (?:perso|buttato|bruciato)\\b[^.!?]{0,25}(?:\\d|€)"
+    },
+    {
+      "id": 2,
+      "name": "Il Comando Negativo",
+      "template": "Smetti di {azione comune}. Fai {alternativa}.",
+      "example": "Smetti di postare tre volte al giorno. Posta due volte e rispondi a ogni commento per un'ora.",
+      "on_screen": "BASTA POSTARE OGNI GIORNO",
+      "best_for": "Salvataggi e discussioni. L'imperativo cattura un'attenzione che un'affermazione non ottiene.",
+      "trap": "Dire di smettere qualcosa che nessuno fa. L'abitudine deve essere una che chi guarda riconosce in sé.",
+      "match": "^\\s*(?:smetti|smettila|smettete|basta|non (?:fare|farlo|usare|scrivere|postare|comprare|dire|mandare|pubblicare|chiedere)|mai|evita|evitate)\\b|\\bsmetti di\\b|\\bnon (?:devi|dovete|dovresti) mai\\b"
+    },
+    {
+      "id": 3,
+      "name": "Nessuno Te Lo Dice",
+      "template": "Nessuno ti dice che {verità scomoda su ciò che vogliono}.",
+      "example": "Nessuno ti dice che i tuoi primi 30 reel sono destinati a floppare.",
+      "on_screen": "I TUOI PRIMI 30 FLOPPERANNO",
+      "best_for": "Pubblici nuovi. Ti posiziona come quello che dice la parte che tutti pensano e nessuno dice.",
+      "trap": "Scegliere una verità che dicono già tutti. Se i commenti sono d'accordo prima che finisci, non era un segreto.",
+      "match": "\\bnessuno\\s+(?:ti |vi |te |ve |ci |ne )?(?:dice|dirà|ha mai detto|ha detto|racconta|parla|insegna|spiega|menziona|ne parla)\\b|\\b(?:quello|ciò) che nessuno\\b"
+    },
+    {
+      "id": 4,
+      "name": "La Sostituzione",
+      "template": "{Questa cosa} ha sostituito {cosa costosa} per {prezzo}.",
+      "example": "Questo strumento da 12 euro ha sostituito l'editor che pagavo 2.000 euro al mese.",
+      "on_screen": "2.000 € -> 12 €",
+      "best_for": "Demo e video sugli strumenti. Il divario di prezzo fa il lavoro.",
+      "trap": "Esagerare la sostituzione. Se ha sostituito il 60% del lavoro, di' 60%, o lo scriveranno i commenti.",
+      "match": "\\bsostitu\\w*[^.!?]*(?:€|\\d)|(?:€|\\d)[^.!?]*\\bsostitu\\w*|\\b(?:invece|al posto) di (?:pagare|assumere)\\b"
+    },
+    {
+      "id": 5,
+      "name": "Il Tempo Che Crolla",
+      "template": "Prima ci mettevo {tanto}. Ora ci metto {poco}.",
+      "example": "Le proposte mi portavano via cinque ore. Ora ci metto venti minuti.",
+      "on_screen": "5 ORE -> 20 MIN",
+      "best_for": "Video di processo in cui il vantaggio è la velocità. Si legge subito a schermo.",
+      "trap": "Un rapporto a cui nessuno crede. 40 ore che diventano 4 secondi passano per bugia anche quando sono vere.",
+      "match": "\\bprima (?:ci )?(?:mettevo|impiegavo|servivano|volevano)\\b|\\bci (?:metto|mettevo|mettiamo|vogliono|volevano|vuole)\\b|\\bora (?:ci )?(?:impiego|bastano|basta)\\b|\\b(?:ci )?(?:vogliono|voleva|volevano|impiego)\\s+(?:solo\\s+)?\\d+\\s*(?:sec|second|min|minut|or[ae]|giorn)"
+    },
+    {
+      "id": 6,
+      "name": "Lo Scontrino",
+      "template": "Ho fatto {cosa} per {N giorni}. Ecco i numeri veri.",
+      "example": "Ho postato un reel al giorno per 60 giorni. Ecco cosa è successo ai miei DM.",
+      "on_screen": "60 GIORNI. NUMERI VERI.",
+      "best_for": "Esperimenti. Funziona in coppia con una registrazione dello schermo della dashboard vera, che è tutto il valore.",
+      "trap": "Non mostrare lo schermo. Un video di numeri senza registrazione schermo è una dichiarazione di numeri.",
+      "match": "\\bho\\s+\\w+\\s+[^.!?]{0,30}\\bper\\s+(?:\\d+|due|tre|quattro|cinque|sei|sette|otto|nove|dieci|dodici|quindici|venti|trenta)\\s+(?:giorni|settimane|mesi|anni)\\b|\\becco (?:i|cosa|quello)\\b[^.!?]*\\bnumeri\\b|\\bi numeri (?:veri|reali)\\b"
+    },
+    {
+      "id": 7,
+      "name": "Sbagliato e Giusto",
+      "template": "Stai facendo {cosa} nel modo sbagliato, e non è colpa tua. {La soluzione}.",
+      "example": "Stai scrivendo le didascalie nel modo sbagliato, e non è colpa tua. Instagram nasconde tutto dopo la prima riga.",
+      "on_screen": "LE TUE DIDASCALIE SONO TAGLIATE",
+      "best_for": "Formazione. La parte \"non è colpa tua\" evita che suoni come un insulto, ed è quello che ammazza questo formato.",
+      "trap": "Saltare l'assoluzione. \"Lo stai facendo male\" da solo fa andare via la gente invece di farla imparare.",
+      "match": "\\b(?:il|un|l'|un')\\s*(?:più\\s+)?(?:grande\\s+|comune\\s+)?errore\\b|\\bstai (?:facendo|sbagliando)\\b|\\bsbagli(?:i|ate)\\b|\\bnon è colpa tua\\b|\\b(?:lo|la|li|le) fai (?:male|sbagliat\\w+)\\b"
+    },
+    {
+      "id": 8,
+      "name": "La Soffiata dall'Interno",
+      "template": "Ho passato {N anni} {dentro la cosa}. Ecco cosa non dicevamo mai ad alta voce.",
+      "example": "Ho lavorato sei anni in un'agenzia. Ecco cosa non scrivevamo mai nelle proposte.",
+      "on_screen": "6 ANNI DALL'INTERNO",
+      "best_for": "Autorevolezza senza slide di credenziali. Funziona solo se gli anni sono veri.",
+      "trap": "Promettere un segreto e consegnare la brochure. I commenti sono spietati su questo.",
+      "match": "\\bho (?:passato|lavorato|gestito|diretto|venduto|fatto)\\b[^.!?]*\\b(?:\\d+|due|tre|quattro|cinque|sei|sette|otto|nove|dieci|dodici|quindici|venti|trenta)\\s*\\+?\\s*anni\\b|\\bnon (?:vi |ti )?(?:abbiamo|hanno) mai (?:detto|raccontato|mostrato|scritto)\\b|\\bho (?:venduto|gestito)\\b[^.!?]*(?:€|\\d)"
+    },
+    {
+      "id": 9,
+      "name": "Il Furto",
+      "template": "Ruba {l'oggetto}. Ci ho messo {tempo} per farlo bene.",
+      "example": "Ruba questo follow-up di quattro righe. Ci ho messo due anni e un sacco di contatti persi.",
+      "on_screen": "RUBALO",
+      "best_for": "Salvataggi e invii, le due metriche che spostano di più la portata.",
+      "trap": "L'oggetto non sta a schermo. Se non possono farne uno screenshot, non c'è niente da rubare.",
+      "match": "^\\s*(?:ruba|rubate|copia|copiate)\\b|\\b(?:ruba|rubate|copia|copiate) (?:questo|questa|questi|queste|il mio|la mia|i miei|le mie)\\b|^\\s*(?:ecco|questo è|questa è) (?:il|la|lo|l')\\s*(?:mio |mia )?(?:esatt\\w+|vero|vera|testo|template|modello)\\b"
+    },
+    {
+      "id": 10,
+      "name": "Se Sei Così, Guarda",
+      "template": "Se {situazione precisa}, questi {pochi secondi} la risolvono.",
+      "example": "Se i tuoi reel fanno visualizzazioni ma non follower, i prossimi 40 secondi lo risolvono.",
+      "on_screen": "VIEW MA ZERO FOLLOWER?",
+      "best_for": "Qualificare forte. Restano in meno, e quelli che restano sono quelli che comprano.",
+      "trap": "Una situazione così larga che non qualifica nessuno. \"Se vuoi crescere\" non è una situazione.",
+      "match": "^\\s*se\\s+\\w+"
+    },
+    {
+      "id": 11,
+      "name": "Numerato con un Preferito",
+      "template": "{N} {cose} che {risultato}. La numero {k} è quella che non usa nessuno.",
+      "example": "Cinque modifiche alla didascalia che raddoppiano i salvataggi. La numero quattro è quella che non fa nessuno.",
+      "on_screen": "5 MODIFICHE. LA #4 È QUELLA.",
+      "best_for": "Retention nella parte centrale: nominare un preferito dà un motivo per restare oltre la terza.",
+      "trap": "N sopra sette. Nessuno crede che tu ne abbia nove buone, e non le hai.",
+      "match": "^\\s*(?:ecco\\s+)?(?:\\d+|due|tre|quattro|cinque|sette|dieci)\\s+\\w+|\\bnumero\\s+(?:\\d+|uno|due|tre|quattro|cinque|sei|sette)\\b|\\b(?:tre|quattro|cinque|sette|dieci)\\s+\\w+\\s+(?:che|per|da)\\b"
+    },
+    {
+      "id": 12,
+      "name": "L'Obiezione",
+      "template": "\"{Obiezione che dicono davvero}.\" Ok. Ecco la versione che funziona lo stesso.",
+      "example": "\"Non voglio stare davanti alla camera.\" Ok. Ecco la versione senza faccia che vende lo stesso.",
+      "on_screen": "\"ODIO STARE IN VIDEO\"",
+      "best_for": "Vendere a chi ha già detto no una volta.",
+      "trap": "Inventarsi l'obiezione. Prendila alla lettera da un DM o da un commento, errori di grammatica compresi.",
+      "match": "^\\s*[\\\"“«'‘][^\\\"”»]{5,120}[\\\"”»'’][,.]?\\s*(?:ok|okay|va bene|bene|certo|giusto|ecco|e allora|allora|benissimo|d'accordo)"
+    },
+    {
+      "id": 13,
+      "name": "Prima e Dopo, a Schermo",
+      "template": "{Mostra la cosa vecchia}. {Mostra la nuova}. {Una frase sulla leva}.",
+      "example": "Questo era il mio profilo a marzo. Questo è com'è adesso. Ho cambiato solo il campo nome.",
+      "on_screen": "MARZO  /  ADESSO",
+      "best_for": "Tutto ciò che è visivo. Lo stacco tra i due fotogrammi è l'hook, le parole sono secondarie.",
+      "trap": "Tre leve. Nomina una sola cosa che è cambiata o la trasformazione smette di essere credibile.",
+      "match": "\\b(?:questo|questa|quello|quella) (?:era|è)\\b[^.!?]*[.!?]\\s*(?:questo|questa|quello|quella) (?:è|era)\\b|\\bprima\\b[^.!?]*\\bdopo\\b|\\bho (?:riguardato|rivisto)\\b"
+    },
+    {
+      "id": 14,
+      "name": "Il Richiamo",
+      "template": "{Gruppo preciso}: questa è quella che stai ignorando.",
+      "example": "Fotografi sotto i duemila euro: questa è la pagina prezzi che stai evitando.",
+      "on_screen": "FOTOGRAFI SOTTO I 2K",
+      "best_for": "Ridurre un pubblico largo a quello che converte. Gli invii salgono perché la gente si tagga a vicenda.",
+      "trap": "Un gruppo così grande che non è un richiamo. \"Imprenditori\" non è un gruppo.",
+      "match": "^\\s*(?:ogni|tutti|tutte|chiunque|attenzione|ascoltate|ascolta)\\b|^\\s*[\\w' ]{2,40}\\s*[,:]\\s*(?:questo|questa|queste|questi|è per|vale per|sto parlando|parlo con)\\b|^\\s*per (?:chi|tutti|tutte|quelli|quelle|chiunque)\\b"
+    },
+    {
+      "id": 15,
+      "name": "Il Registro dei Flop",
+      "template": "I miei primi {N} {tentativi} non hanno fatto niente. Ecco cosa è cambiato al {N+1}.",
+      "example": "I miei primi 47 reel hanno fatto in media 300 visualizzazioni. Il 48 ne ha fatte 400.000. Una cosa era diversa.",
+      "on_screen": "47 FLOP, POI QUESTO",
+      "best_for": "Chi è all'inizio, cioè la maggior parte del pubblico. Alto tasso di commenti.",
+      "trap": "Far sembrare il cambiamento fortuna. Se la risposta è \"mi è andata bene\", non c'è un video.",
+      "match": "\\b(?:i|le) (?:miei |mie )?prim[ie]\\s+(?:\\d+|cinque|dieci|venti|trenta|quaranta|cinquanta|cento)\\b"
+    },
+    {
+      "id": 16,
+      "name": "La Domanda Testuale",
+      "template": "\"{La domanda esattamente come è stata fatta}\" - me lo chiedono ogni settimana.",
+      "example": "\"Come faccio a postare con costanza senza odiarlo?\" Me lo chiedono ogni settimana.",
+      "on_screen": "CHIESTO OGNI SETTIMANA",
+      "best_for": "La ricerca. Una domanda scritta come la scrive la gente è ciò con cui la ricerca di Instagram fa il confronto.",
+      "trap": "Ripulire la domanda. Il valore sta nel fatto che è con le loro parole, refusi compresi.",
+      "match": "^\\s*[\\\"“«]?(?:come|cosa|che cosa|perché|perchè|quando|dove|chi|quale|quali|quanto|quanti|posso|devo|dovrei|si può|è|sono|hai|avete|vuoi|vorresti|conviene)\\b[^?]{3,110}\\?"
+    },
+    {
+      "id": 17,
+      "name": "Testa a Testa",
+      "template": "{A} contro {B}. Li ho provati entrambi per {tempo} e uno non c'è stato storia.",
+      "example": "Caroselli vs reel. Li ho provati entrambi per 90 giorni e non c'è stata storia.",
+      "on_screen": "CAROSELLI vs REEL",
+      "best_for": "Commenti. La gente arriva con un'opinione già in tasca, ed è proprio il punto.",
+      "trap": "Rifiutarsi di scegliere. Un confronto con un finale diplomatico è un video senza finale.",
+      "match": "\\b(?:vs\\.?|versus)\\b|\\bdifferenz[ae] (?:tra|fra)\\b|\\bmeglio\\b[^.!?]*\\b(?:o|oppure)\\b"
+    },
+    {
+      "id": 18,
+      "name": "Demo a Freddo",
+      "template": "{Parti a metà azione, già a fare la cosa.} Guarda cosa fa.",
+      "example": "Guarda cosa succede quando incollo qui la didascalia di un concorrente.",
+      "on_screen": "GUARDA QUI",
+      "best_for": "Registrazioni dello schermo e tutto ciò che ha un risultato visibile. Nessuna introduzione, la mano si sta già muovendo.",
+      "trap": "Un risultato che arriva dopo dodici secondi. Se il risultato è lento, taglia direttamente e mostra l'attesa dopo.",
+      "match": "^\\s*(?:guarda|guardate)\\s+(?:cosa|come|questo|me|qui)\\b|^\\s*fammi vedere\\b|^\\s*(?:ripeti|ripetete) con me\\b"
+    },
+    {
+      "id": 19,
+      "name": "La Scadenza",
+      "template": "{Cosa} cambia il {data}. Fai {azione} prima.",
+      "example": "Prima che pubblichi il prossimo reel, sistema le copertine: la griglia cambia.",
+      "on_screen": "PRIMA DEL PROSSIMO POST",
+      "best_for": "Urgenza vera. Cambi di piattaforma, finestre stagionali, aggiornamenti di regole.",
+      "trap": "Urgenza fabbricata. Una scadenza finta e tutte le prossime vengono scontate.",
+      "match": "\\bprima che\\b[^.!?]*\\b(?:cambi\\w*|finisc\\w+|chiud\\w+|scad\\w+)\\b|\\b(?:cambia|cambiano|cambierà|cambieranno) (?:il|dal|a partire|tutto)\\b|\\bentro (?:il )?\\d+\\b|\\bfino al \\d+\\b"
+    },
+    {
+      "id": 20,
+      "name": "Il Permesso",
+      "template": "Non ti serve {la cosa che tutti dicono che ti serve}.",
+      "example": "Non ti serve una nicchia. Ti serve una persona che puoi nominare.",
+      "on_screen": "NON TI SERVE UNA NICCHIA",
+      "best_for": "Sollievo. Tasso di salvataggio molto alto, perché toglie un ostacolo invece di aggiungere un compito.",
+      "trap": "Togliere l'ostacolo senza mettere niente al suo posto. La seconda metà è tutto il video.",
+      "match": "\\bnon (?:ti|vi) (?:serve|servono|occorre|occorrono|basta)\\b|\\bnon (?:hai|avete) bisogno\\b|\\bnon c'è bisogno\\b|\\bsmetti di (?:cercare|preoccuparti)\\b"
+    },
+    {
+      "id": 21,
+      "name": "Attacco a Metà Frase",
+      "template": "{...ed è lì che {la svolta}.}",
+      "example": "...ed è lì che il cliente mi ha chiesto indietro i soldi. Tre giorni dopo averlo approvato.",
+      "on_screen": "HA CHIESTO IL RIMBORSO",
+      "best_for": "Storie. Partire a metà scena fa sentire chi guarda di essere arrivato in ritardo, e questo è un motivo per restare.",
+      "trap": "Non tornare mai a riempire il buco. Consegna l'antefatto entro il secondo otto o sembra un errore.",
+      "match": "^\\s*(?:\\.\\.\\.|…)|^\\s*(?:e (?:fu|è) (?:lì|allora|qui) che|ed è (?:lì|allora|qui) che|e poi|e allora|e fu allora|così (?:lui|lei|loro) (?:ha|mi))\\b|^\\s*(?:ehm|uhm|mmh)\\b"
+    },
+    {
+      "id": 22,
+      "name": "Il Ribaltamento",
+      "template": "{Un detto famoso, rovesciato.}",
+      "example": "I bravi ragazzi arrivano primi.",
+      "on_screen": "I BRAVI RAGAZZI ARRIVANO PRIMI",
+      "best_for": "Commenti. Chi guarda deve fermarsi a controllare se ha sentito male.",
+      "trap": "Rovesciare un detto che nessuno dice. L'originale deve essere un riflesso, o il ribaltamento è solo una frase.",
+      "match": "^\\s*[\\w' ]{2,34}\\b(?:arriv\\w+|vinc\\w+|perd\\w+|batt\\w+|è|sono)\\s+(?:primi|prima|ultimi|ultima|sbagliat\\w+|giust\\w+|meglio|sopravvalutat\\w+|sottovalutat\\w+|morto|morta)\\b"
+    },
+    {
+      "id": 23,
+      "name": "La Statistica",
+      "template": "Il {N}% di {gruppo} {fatto sorprendente}.",
+      "example": "Il 33% dei diplomati non legge mai più un libro.",
+      "on_screen": "33% NON LEGGE PIÙ",
+      "best_for": "Invii. Un numero che si può ripetere a cena viene mandato a qualcuno.",
+      "trap": "Una statistica senza fonte. Di' da dove viene nel video o non usarla.",
+      "match": "^\\s*\\d[\\d.,]*\\s?(?:%|per cento)|\\b\\d[\\d.,]*\\s?(?:%|per cento)\\s+(?:di|dei|delle|degli|dell|del|della|dello|tra|fra)\\b|\\b\\d+\\s+\\w+\\s+su\\s+\\d+\\b"
+    },
+    {
+      "id": 24,
+      "name": "La Rivelazione",
+      "template": "Questo è il nuovo {oggetto}.",
+      "example": "Questa è la nuova compatta Sony, e risolve l'unica cosa che odiavo.",
+      "on_screen": "LA NUOVA",
+      "best_for": "Tutto ciò che è fisico o visivo. L'oggetto è l'hook, le parole sono didascalie su di esso.",
+      "trap": "Alzare l'oggetto senza dire cosa cambia. Una rivelazione senza posta in gioco è una pubblicità.",
+      "match": "^\\s*(?:allora,?\\s+)?(?:questo|questa|questi|queste|ecco)\\s+(?:è|sono)?\\s*(?:il |la |lo |i |le |l')?(?:nuov[oaie]|mio nuovo|mia nuova)\\b|^\\s*(?:questo|questa) (?:nuov[oa]|piccol[oa])\\b|^\\s*(?:questo|questa) \\w+ ha (?:il|la|un|una)\\b"
+    },
+    {
+      "id": 25,
+      "name": "Il Risultato di un Altro",
+      "template": "C'era un {persona} che {risultato} in {tempo}.",
+      "example": "C'era un creator che ha fatto un milione di iscritti in un solo mese.",
+      "on_screen": "1 MILIONE IN UN MESE",
+      "best_for": "Prova quando l'utente non ha ancora un numero suo. La terza persona va bene se è vera.",
+      "trap": "Niente nome e niente link. Un miracolo anonimo è una voce di corridoio.",
+      "match": "\\bc'(?:era|è) (?:un|una|uno)\\b|\\b(?:un|una|uno) (?:ragazzo|ragazza|creator|studente|studentessa|fondatore|fondatrice|cliente|amico|amica|tizio|tipo) (?:che|di cui)\\b[^.!?]{0,40}\\b(?:cresciut\\w+|fatto|costruito|passato|arrivato|raggiunto|guadagnat\\w+)\\b|\\bho (?:un|una) (?:cliente|amico|amica)\\b"
+    },
+    {
+      "id": 26,
+      "name": "Il Superlativo",
+      "template": "Il {più veloce / più grande / unico} {modo} è {la risposta}.",
+      "example": "Il modo più veloce per diventare sicuri è costruire prove che non puoi contestare.",
+      "on_screen": "IL MODO PIÙ VELOCE",
+      "best_for": "Video con una sola tesi e nessuna storia. È la forma più comune in giro e la più facile da scrivere male.",
+      "trap": "Un superlativo con una risposta morbida. Se la seconda metà è \"costanza\", non hai detto niente e i commenti te lo diranno.",
+      "match": "^\\s*(?:il|la|lo|l'|i|le)\\s*(?:modo |metodo |trucco |sistema )?(?:più )?(?:veloce|rapido|rapida|migliore|peggiore|grande|facile|difficile|unico|unica|importante)\\b|^\\s*(?:l'unic[oa]|il modo più|la cosa più|il miglior|la migliore|il peggior|la peggior|il più)\\b|\\bil (?:modo|metodo) (?:più (?:veloce|rapido|facile)|migliore|unico)\\b"
+    }
+  ],
+  "classify_order": [
+    1,
+    23,
+    5,
+    4,
+    3,
+    15,
+    20,
+    7,
+    9,
+    26,
+    25,
+    24,
+    18,
+    17,
+    8,
+    6,
+    16,
+    12,
+    10,
+    2,
+    13,
+    19,
+    21,
+    22,
+    11,
+    14
+  ]
+}

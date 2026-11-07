@@ -1,0 +1,79 @@
+{
+  "version": "1.0-it",
+  "total": 100,
+  "note": "Dodici voci. Dai un punteggio onesto a ciascuna: un punteggio generoso non aiuta nessuno. La maggior parte dei profili al primo giro finisce sui 30-40 punti. Il peso è voluto: il campo nome, la prima riga della bio e i tre fissati valgono più della foto, perché sono ciò che uno sconosciuto arrivato da un reel elabora davvero prima di decidere se seguire. Adattamento italiano: i limiti (30 caratteri per il nome, 150 per la bio) e i pesi sono quelli dell'originale e non sono stati verificati di nuovo.",
+  "items": [
+    {
+      "id": "name_field",
+      "points": 12,
+      "full_marks": "Il campo nome (30 caratteri, la riga in grassetto, non l'handle) contiene il nome più ciò che fai con parole che la gente cerca: 'Dana Ruiz | Modelli di preventivo'. Questo campo è indicizzato dalla ricerca di Instagram e la maggior parte degli account lo spreca con il solo nome.",
+      "common_fail": "Solo un nome, o un nome con un'emoji."
+    },
+    {
+      "id": "bio_first_line",
+      "points": 12,
+      "full_marks": "La prima riga dice per chi è questo profilo e cosa cambia per loro, con le loro parole. Non un titolo di lavoro, non un elenco di aggettivi, non tre emoji separate da barre.",
+      "common_fail": "'Imprenditore | Amante del caffè | Papà di un cane'."
+    },
+    {
+      "id": "bio_body",
+      "points": 8,
+      "full_marks": "Il resto dei 150 caratteri contiene una prova o un'offerta precisa, e si legge come frasi e non come un elenco separato da barre.",
+      "common_fail": "Zuppa di parole chiave, o spazio vuoto."
+    },
+    {
+      "id": "pinned_three",
+      "points": 10,
+      "full_marks": "Tre post fissati in cima alla griglia, con tre compiti diversi: la prova migliore, la spiegazione più chiara dell'offerta e la migliore presentazione della persona. Non i tre post con più view per caso.",
+      "common_fail": "Niente fissato, quindi la cima della griglia è l'ultima cosa pubblicata."
+    },
+    {
+      "id": "link",
+      "points": 8,
+      "full_marks": "Una sola destinazione coerente con ciò che la bio ha appena promesso. Sono permessi fino a cinque link; più di due è un menu, e un menu converte peggio di una porta.",
+      "common_fail": "Un linktree con undici opzioni, oppure nessun link."
+    },
+    {
+      "id": "highlights",
+      "points": 8,
+      "full_marks": "Da quattro a sei in evidenza, con i nomi delle domande che un acquirente fa davvero: Prezzi, Risultati, Come funziona, Chi sono. Copertine coerenti. Niente di più vecchio di un anno davanti.",
+      "common_fail": "'Varie', 'Vita', 'Preferiti', oppure 14 in evidenza senza ordine."
+    },
+    {
+      "id": "grid_legibility",
+      "points": 8,
+      "full_marks": "Le prime nove copertine sono leggibili in miniatura e dicono di cosa parla l'account senza un solo tocco. Le copertine dei reel sono scelte apposta, non lasciate al primo fotogramma.",
+      "common_fail": "Nove copertine di una faccia a metà parola senza testo."
+    },
+    {
+      "id": "photo",
+      "points": 6,
+      "full_marks": "Il volto riempie circa il 60% di un cerchio che viene mostrato a circa 40 pixel. Occhi visibili, scattata negli ultimi due anni, sfondo che non fa concorrenza.",
+      "common_fail": "Una foto a figura intera, un logo per un personal brand, o una foto a braccio teso in una stanza buia."
+    },
+    {
+      "id": "handle",
+      "points": 6,
+      "full_marks": "Leggibile, pronunciabile ad alta voce, e lo stesso handle delle altre piattaforme. Niente trattini bassi impilati né numeri al posto delle lettere.",
+      "common_fail": "Un handle che nessuno sa scrivere dopo averlo sentito una volta."
+    },
+    {
+      "id": "category_contact",
+      "points": 6,
+      "full_marks": "Account professionale con una categoria coerente con l'offerta e pulsanti di contatto che funzionano. Un'email che viene controllata, non quella del 2019.",
+      "common_fail": "Account personale, quindi niente statistiche e niente pulsante di contatto."
+    },
+    {
+      "id": "recent_activity",
+      "points": 10,
+      "full_marks": "Pubblicato negli ultimi sette giorni e risposto ai commenti dell'ultimo post. Un account che ha pubblicato l'ultima volta a marzo sembra chiuso.",
+      "common_fail": "Un buco di cinque settimane, o un muro di commenti senza risposta."
+    },
+    {
+      "id": "story_presence",
+      "points": 6,
+      "full_marks": "Una storia attiva adesso, o almeno quasi ogni giorno. È la differenza tra un profilo e una persona.",
+      "common_fail": "Nessun anello, mai."
+    }
+  ]
+}
