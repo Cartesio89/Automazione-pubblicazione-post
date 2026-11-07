@@ -48,21 +48,21 @@ Installa questa skill, poi conferma che /ig-reel funziona.
 Oppure a mano, in Claude Code:
 
 ```bash
-git clone https://github.com/Cartesio89/Automazione-publicazione-post.git
-cp -r Automazione-publicazione-post/skills/ig-* ~/.claude/skills/
+git clone https://github.com/Cartesio89/Automazione-pubblicazione-post.git
+cp -r Automazione-pubblicazione-post/skills/ig-* ~/.claude/skills/
 ```
 
 Su Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/Cartesio89/Automazione-publicazione-post.git
-Copy-Item -Recurse Automazione-publicazione-post\skills\ig-* $env:USERPROFILE\.claude\skills\
+git clone https://github.com/Cartesio89/Automazione-pubblicazione-post.git
+Copy-Item -Recurse Automazione-pubblicazione-post\skills\ig-* $env:USERPROFILE\.claude\skills\
 ```
 
 Oppure come plugin:
 
 ```
-/plugin marketplace add Cartesio89/Automazione-publicazione-post
+/plugin marketplace add Cartesio89/Automazione-pubblicazione-post
 /plugin install instagram-agent-it@instagram-agent-skill-it
 ```
 
