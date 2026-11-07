@@ -45,26 +45,25 @@ Incolla questo in Claude:
 Installa questa skill, poi conferma che /ig-reel funziona.
 ```
 
-Oppure a mano, in Claude Code (ricordati di sostituire `TUO-UTENTE/NOME-REPO`
-con la repo in cui metterai questa cartella):
+Oppure a mano, in Claude Code:
 
 ```bash
-git clone https://github.com/TUO-UTENTE/NOME-REPO.git
-cp -r NOME-REPO/skills/ig-* ~/.claude/skills/
+git clone https://github.com/Cartesio89/Automazione-publicazione-post.git
+cp -r Automazione-publicazione-post/skills/ig-* ~/.claude/skills/
 ```
 
 Su Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/TUO-UTENTE/NOME-REPO.git
-Copy-Item -Recurse NOME-REPO\skills\ig-* $env:USERPROFILE\.claude\skills\
+git clone https://github.com/Cartesio89/Automazione-publicazione-post.git
+Copy-Item -Recurse Automazione-publicazione-post\skills\ig-* $env:USERPROFILE\.claude\skills\
 ```
 
 Oppure come plugin:
 
 ```
-/plugin marketplace add TUO-UTENTE/NOME-REPO
-/plugin install instagram-agent-it
+/plugin marketplace add Cartesio89/Automazione-publicazione-post
+/plugin install instagram-agent-it@instagram-agent-skill-it
 ```
 
 Locale al progetto invece che globale: copia le stesse cartelle in

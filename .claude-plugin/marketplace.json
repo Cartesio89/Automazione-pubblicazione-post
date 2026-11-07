@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "instagram-agent-skill-it",
+  "description": "Il pacchetto di skill Instagram per Claude, in italiano",
+  "owner": {
+    "name": "Cartesio89 (adattamento italiano di instagram-agent-skill di Jake Schincariol)",
+    "url": "https://github.com/Cartesio89"
+  },
+  "plugins": [
+    {
+      "name": "instagram-agent-it",
+      "description": "Tredici skill di Claude per gestire un account Instagram in italiano, con pannello di hook, ricerca virale, controllo delle didascalie e umanizzatore.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/Cartesio89/Automazione-publicazione-post"
+    }
+  ]
+}

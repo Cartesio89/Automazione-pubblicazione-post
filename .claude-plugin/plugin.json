@@ -1,0 +1,22 @@
+{
+  "name": "instagram-agent-it",
+  "description": "Tredici skill di Claude per gestire un account Instagram in italiano: Reel su 26 formule di hook con hook valutato e scaletta temporizzata, ricerca di ciò che funziona nella tua nicchia, didascalie controllate sul taglio del feed, caroselli, storie, punteggio del profilo, piano settimanale, commenti, risposte, DM, riutilizzo dei contenuti, audit e un umanizzatore che toglie l'impronta da IA. Adattamento italiano non ufficiale di instagram-agent-skill di Jake Schincariol.",
+  "version": "1.0.0-it.1",
+  "author": {
+    "name": "Adattamento italiano (originale: Jake Schincariol)",
+    "url": "https://opusjake.ai"
+  },
+  "homepage": "https://github.com/Cartesio89/Automazione-publicazione-post",
+  "repository": "https://github.com/Cartesio89/Automazione-publicazione-post",
+  "license": "MIT",
+  "keywords": [
+    "instagram",
+    "reels",
+    "italiano",
+    "contenuti",
+    "scrittura",
+    "umanizzatore",
+    "social",
+    "marketing"
+  ]
+}
